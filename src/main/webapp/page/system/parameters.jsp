@@ -70,13 +70,15 @@
             var layer = layui.layer;
             var table = layui.table;
             var laydate = layui.laydate;
+
+            var url = "http://47.104.192.49:8080/";
             //常规用法
             laydate.render({
                 elem: '#createDate'
             });
             table.render({
                 elem: '#user-table',
-                url:"http://47.104.192.49:8080/queryParameters.html",
+                url: url+"queryParameters.html",
                 page: {
                     layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'], //自定义分页布局
                     limit: 20,
@@ -87,19 +89,19 @@
                 , title: '消息列表',
                 cols: [[
                     { type: 'checkbox', field: true,width:40 }
-                    , { field: 'id', title: 'ID'}
+                    , { field: 'id', title: 'ID',width:50}
                     , { field: 'barCode', title: '户号'}
                     , { field: 'orgCode', title: '缴费单位码'}
                     , { field: 'orgName', title: '缴费单位名称'}
                     , { field: 'bodyOne', title: '报文体1'}
                     , { field: 'bodyTwo', title: '报文体2'}
                     , { field: 'bodyThree', title: '报文体3'}
-                    , { field: 'bodyType', title: '请求类型'}
+                    , { field: 'bodyType', title: '请求类型',templet: function(item){
+                            if(item.bodyType == 'req'){
+                                return '查询响应'
+                            } else { return '销账响应'}
+                        }}
                     , { field: 'effectFlag', title: '状态'}
-                    /*, { field: 'createdBy', title: '创建者'}
-                    , { field: 'createdAt', title: '创建时间'}
-                    , { field: 'updatedBy', title: '修改者'}
-                    , { field: 'updatedAt', title: '修改时间'}*/
                 ]]
                 , parseData: function(res){
                 return {
@@ -151,7 +153,7 @@
                                 }
 
                                 $.ajax({
-                                    url:"http://47.104.192.49:8080/delBody.html",
+                                    url:url+"delBody.html",
                                     data:{"ids":ids},
                                     dataType:"json",
                                     traditional: true,

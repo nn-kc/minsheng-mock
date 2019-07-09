@@ -57,8 +57,8 @@
         <div class="layui-input-block" style="width: 10%">
             <select name="bodyType" lay-filter="aihao">
                 <option value=""></option>
-                <option value="req">查询</option>
-                <option value="rsp">销账</option>
+                <option value="req">查询响应</option>
+                <option value="rsp">销账响应</option>
             </select>
         </div>
     </div>
@@ -94,7 +94,6 @@
         // 表单提交事件
         form.on('submit(btnSubmit)', function (data) {
             $.get(url, data.field, function (data) {
-                alert("aaaa");
                 window.location.href="/page/system/parameters.jsp";
             },'json');
             return false;

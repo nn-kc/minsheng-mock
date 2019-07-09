@@ -13,7 +13,7 @@
 <div class="layui-fluid" style="text-align: center;width: 100%;">
     <div class="layui-card" style="margin-top: 200px;">
         <div class="layui-card-body">
-            <p>地址替换为：http://172.31.40.25:8088/upc_msyy/services/BestPayUnionExcutePort?wsdl</p>
+            <p>地址替换为：http://47.104.192.49:8089/upc_msyy/services/BestPayUnionExcutePort?wsdl</p>
         </div>
     </div>
 </div>
